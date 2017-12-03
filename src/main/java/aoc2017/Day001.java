@@ -33,30 +33,20 @@ public class Day001
 
         byte[] bytes = digits.getBytes();
 
-        if(bytes.length == 1) {
-            return score(bytes[0]);
-        }
-
         long sum = 0;
-        byte last = bytes[0];
-        for(int i = 1; i < bytes.length; i++) {
-            byte current = bytes[i];
-
-            if(last == current) {
-                sum += score(current);
-            }
-
-            last = current;
-        }
-
-        if(bytes[0] == bytes[bytes.length-1]) {
-            sum += score(bytes[0]);
+        int compareIndex = Math.min(1, bytes.length - 1);
+        for (byte currentByte : bytes) {
+            sum += score(currentByte, bytes[compareIndex]);
+            compareIndex = advanceIndex(compareIndex, bytes.length);
         }
         return sum;
     }
 
-    private long score(byte b) {
-        return b - '0';
+    private long score(byte a, byte b) {
+        if(a == b) {
+            return b - '0';
+        }
+        return 0;
     }
 
 
@@ -92,11 +82,8 @@ public class Day001
 
         int upperIndex = digits.length() / 2;
         long sum = 0;
-        for (byte aByte : bytes) {
-            if (aByte == bytes[upperIndex]) {
-                sum += score(aByte);
-            }
-
+        for (byte currentByte : bytes) {
+            sum += score(currentByte, bytes[upperIndex]);
             upperIndex = advanceIndex(upperIndex, bytes.length);
         }
         return sum;
