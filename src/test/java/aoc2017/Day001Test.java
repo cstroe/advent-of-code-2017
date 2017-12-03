@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 /**
  * Unit test for simple Day001.
  */
-@DisplayName("Advent of Code: Day 001")
+@DisplayName("Advent of Code: Day 01")
 public class Day001Test {
     private Day001 day;
 
