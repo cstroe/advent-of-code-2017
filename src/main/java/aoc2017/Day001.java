@@ -27,7 +27,7 @@ package aoc2017;
 public class Day001
 {
     public long getSum(String digits) {
-        if(digits.isEmpty()) {
+        if(digits == null || digits.isEmpty()) {
             return 0;
         }
 
@@ -55,7 +55,7 @@ public class Day001
         return sum;
     }
 
-    private long score(byte b) {
+    public static long score(byte b) {
         return b - '0';
     }
 }
