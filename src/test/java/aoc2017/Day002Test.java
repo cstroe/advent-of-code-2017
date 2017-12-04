@@ -26,14 +26,7 @@ class Day002Test {
 
         @Test @DisplayName("should compute puzzle input checksum")
         public void computeInputChecksum() throws IOException {
-            InputStream is = getClass().getResourceAsStream("/day002.txt");
-            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-            String line;
-            List<String> rows = new LinkedList<>();
-            while((line = reader.readLine()) != null) {
-                rows.add(line);
-            }
-
+            List<String> rows = TestUtil.readResource("/day002.txt");
             Day002 day = new Day002();
             assertThat(day.computeChecksum(rows), is(42299L));
         }
