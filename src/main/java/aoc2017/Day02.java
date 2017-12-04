@@ -26,7 +26,7 @@ import java.util.stream.IntStream;
  What is the checksum for the spreadsheet in your puzzle input?
 
  */
-public class Day002 {
+public class Day02 {
     public long computeChecksum(List<String> spreadsheetRows) {
         return spreadsheetRows.stream()
                 .mapToLong(this::computeRowChecksum).sum();

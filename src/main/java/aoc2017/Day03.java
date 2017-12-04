@@ -2,10 +2,8 @@ package aoc2017;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
 
-import static aoc2017.Day003.Direction.*;
+import static aoc2017.Day03.Direction.*;
 
 /**
  * --- Day 3: Spiral Memory ---
@@ -33,7 +31,7 @@ import static aoc2017.Day003.Direction.*;
 
  Your puzzle input is 347991.
  */
-public class Day003 {
+public class Day03 {
     public static class Ring {
         long num = 1;
         long base = 1;

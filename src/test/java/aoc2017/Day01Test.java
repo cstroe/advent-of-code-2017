@@ -10,15 +10,15 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Unit test for simple Day001.
+ * Unit test for simple Day01.
  */
-@DisplayName("Advent of Code: Day 01")
-public class Day001Test {
-    private Day001 day;
+@DisplayName("Day 01")
+public class Day01Test {
+    private Day01 day;
 
     @BeforeEach
     public void setUp() {
-        day = new Day001();
+        day = new Day01();
     }
 
     @Nested @DisplayName("part 1")

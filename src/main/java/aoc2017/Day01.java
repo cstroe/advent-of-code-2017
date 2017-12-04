@@ -24,7 +24,7 @@ package aoc2017;
  *
  * What is the solution to your captcha?
  */
-public class Day001
+public class Day01
 {
     public long getSum(String digits) {
         if(digits == null || digits.isEmpty()) {
@@ -51,7 +51,7 @@ public class Day001
 
 
     /**
-     * Read {@link Day001} for Part One.
+     * Read {@link Day01} for Part One.
      *
      * --- Part Two ---
 

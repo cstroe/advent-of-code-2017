@@ -1,6 +1,7 @@
 package aoc2017;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -9,18 +10,18 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-class Day004p2Test {
-    private Day004p2 day;
+@DisplayName("Day 04 - Part 1")
+class Day04p1Test {
+    private Day04p1 day;
 
     @BeforeEach
     public void setUp() {
-        day = new Day004p2();
+        day = new Day04p1();
     }
 
     @Test
     public void simpleTest() {
-        assertThat(day.countValidPasswords(List.of("abcde fghij")), is(1));
-        assertThat(day.countValidPasswords(List.of("abcde xyz ecdab")), is(0));
+        assertThat(day.countValidPasswords(List.of("aa bb cc dd ee")), is(1));
     }
 
     @Test

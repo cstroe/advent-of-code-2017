@@ -20,7 +20,7 @@ import java.util.List;
  The system's full passphrase list is available as your puzzle input. How many passphrases are valid?
 
  */
-public class Day004 {
+public class Day04p1 {
     public int countValidPasswords(List<String> passwords) {
         return passwords.stream().mapToInt(this::isValid).sum();
     }

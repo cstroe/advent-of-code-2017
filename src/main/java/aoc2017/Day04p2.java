@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
-public class Day004p2 {
+public class Day04p2 {
     public int countValidPasswords(List<String> passwords) {
         return passwords.stream().mapToInt(this::isValid).sum();
     }
