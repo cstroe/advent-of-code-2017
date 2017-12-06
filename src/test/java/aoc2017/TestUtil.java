@@ -18,4 +18,8 @@ public class TestUtil {
         }
         return lines;
     }
+
+    public static int[] readResourceAsInts(String path) throws IOException {
+        return readResource(path).stream().mapToInt(Integer::parseInt).toArray();
+    }
 }

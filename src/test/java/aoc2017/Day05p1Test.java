@@ -4,7 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -21,9 +20,7 @@ class Day05p1Test {
 
     @Test
     public void solveProblem() throws IOException {
-        List<String> jumpList = TestUtil.readResource("/day005.txt");
-        int[] jumpArray = jumpList.stream().mapToInt(Integer::parseInt).toArray();
-
+        int[] jumpArray = TestUtil.readResourceAsInts("/day5.txt");
         assertThat(day.doStuff(jumpArray), is(351282));
     }
 }
