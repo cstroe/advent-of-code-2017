@@ -20,7 +20,7 @@ class Day05p2Test {
 
     @Test
     public void solveProblem() throws IOException {
-        int[] jumpArray = TestUtil.readResourceAsInts("/day5.txt");
+        int[] jumpArray = TestUtil.readResourceAsInts("/day05.txt");
         assertThat(day.doStuff(jumpArray), is(24568703));
     }
 }

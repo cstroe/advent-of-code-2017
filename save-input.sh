@@ -15,4 +15,6 @@ if [ -z "$COOKIE" ]; then
   exit 1
 fi
 
-curl --cookie "$COOKIE" http://adventofcode.com/2017/day/$1/input > src/test/resources/day$1.txt
+OUTPUT_FILE=`printf "day%02d.txt" $1`
+
+curl --cookie "$COOKIE" http://adventofcode.com/2017/day/$1/input > src/test/resources/$OUTPUT_FILE
