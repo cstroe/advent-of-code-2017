@@ -10,19 +10,17 @@ fi
 
 DAY=`printf "%02d" $1`
 
-create_files () {
-
 cat <<__IMPL__ > src/main/java/aoc2017/Day${DAY}p$1.java
 package aoc2017;
 
-public class Day${DAY}p$1 {
+public class Day${DAY} {
     public int doStuff(int[] indices) {
         return 0;
     }
 }
 __IMPL__
 
-cat <<__TEST__ > src/test/java/aoc2017/Day${DAY}p${1}Test.java
+cat <<__TEST__ > src/test/java/aoc2017/Day${DAY}Test.java
 package aoc2017;
 
 import org.junit.jupiter.api.DisplayName;
@@ -33,9 +31,9 @@ import java.io.IOException;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-@DisplayName("Day ${DAY} - Part $1")
-class Day${DAY}p${1}Test {
-    private Day${DAY}p$1 day = new Day${DAY}p$1();
+@DisplayName("Day ${DAY}")
+class Day${DAY}Test {
+    private Day${DAY} day = new Day${DAY}();
 
     @Test
     public void simpleTest() {
@@ -50,10 +48,5 @@ class Day${DAY}p${1}Test {
     }
 }
 __TEST__
-
-}
-
-create_files 1
-create_files 2
 
 
