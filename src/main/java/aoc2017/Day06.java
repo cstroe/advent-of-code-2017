@@ -3,6 +3,9 @@ package aoc2017;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+
+import static aoc2017.Utils.findMaxIndex;
+
 /**
  * --- Day 6: Memory Reallocation ---
 
@@ -106,18 +109,5 @@ public class Day06 {
             }
             banks[index]++;
         }
-    }
-
-    private int findMaxIndex(int[] banks) {
-        int max = 0;
-        int maxIndex = 0;
-        for(int i = 0; i < banks.length; i++) {
-            int value = banks[i];
-            if(value > max) {
-                max = value;
-                maxIndex = i;
-            }
-        }
-        return maxIndex;
     }
 }
