@@ -11,12 +11,12 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 @DisplayName("Day 04 - Part 1")
-class Day04p1Test {
-    private Day04p1 day;
+class Day04Test {
+    private Day04 day;
 
     @BeforeEach
     public void setUp() {
-        day = new Day04p1();
+        day = new Day04();
     }
 
     @Test
@@ -30,6 +30,21 @@ class Day04p1Test {
         System.out.println("Found " + passwords.size() + " passwords.");
 
         int validPasswords = day.countValidPasswords(passwords);
+        System.out.println("Found " + validPasswords + " valid passwords.");
+    }
+
+    @Test
+    public void simpleTest2() {
+        assertThat(day.countValidPasswords2(List.of("abcde fghij")), is(1));
+        assertThat(day.countValidPasswords2(List.of("abcde xyz ecdab")), is(0));
+    }
+
+    @Test
+    public void solvePuzzlePart2() throws IOException {
+        List<String> passwords = TestUtil.readResource("/day004.txt");
+        System.out.println("Found " + passwords.size() + " passwords.");
+
+        int validPasswords = day.countValidPasswords2(passwords);
         System.out.println("Found " + validPasswords + " valid passwords.");
     }
 }

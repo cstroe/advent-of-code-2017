@@ -31,6 +31,11 @@ import static aoc2017.Day03.Direction.*;
 
  Your puzzle input is 347991.
  */
+/*
+      --------Part 1--------   --------Part 2--------
+Day       Time   Rank  Score       Time   Rank  Score
+  3   05:36:07   3485      0       >24h   8131      0
+ */
 public class Day03 {
     public static class Ring {
         long num = 1;

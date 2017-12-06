@@ -24,6 +24,11 @@ package aoc2017;
  *
  * What is the solution to your captcha?
  */
+/*
+      --------Part 1--------   --------Part 2--------
+Day       Time   Rank  Score       Time   Rank  Score
+  1       >24h  23368      0       >24h  19748      0
+ */
 public class Day01
 {
     public long getSum(String digits) {

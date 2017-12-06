@@ -20,7 +20,13 @@ import java.util.List;
  The system's full passphrase list is available as your puzzle input. How many passphrases are valid?
 
  */
-public class Day04p1 {
+
+/*
+      --------Part 1--------   --------Part 2--------
+Day       Time   Rank  Score       Time   Rank  Score
+  4   01:29:04   2341      0   01:39:15   2137      0
+ */
+public class Day04 {
     public int countValidPasswords(List<String> passwords) {
         return passwords.stream().mapToInt(this::isValid).sum();
     }
@@ -34,5 +40,36 @@ public class Day04p1 {
             return 0;
         }
         return 1;
+    }
+
+    public int countValidPasswords2(List<String> passwords) {
+        return passwords.stream().mapToInt(this::isValid2).sum();
+    }
+
+    private int isValid2(String password) {
+        String[] words = password.split("\\s");
+
+        String[] normalized = normalize(words);
+
+        HashSet<String> set = new HashSet<>();
+        set.addAll(Arrays.asList(normalized));
+
+        if(words.length != set.size()) {
+            return 0;
+        }
+        return 1;
+    }
+
+    private String[] normalize(String[] words) {
+        String[] n = new String[words.length];
+
+        for(int i = 0; i < words.length; i++) {
+            String curr = words[i];
+            char[] chars = curr.toCharArray();
+            Arrays.sort(chars);
+            n[i] = new String(chars);
+        }
+
+        return n;
     }
 }

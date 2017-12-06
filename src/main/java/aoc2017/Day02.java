@@ -26,6 +26,11 @@ import java.util.stream.IntStream;
  What is the checksum for the spreadsheet in your puzzle input?
 
  */
+/*
+      --------Part 1--------   --------Part 2--------
+Day       Time   Rank  Score       Time   Rank  Score
+  2       >24h  15453      0       >24h  13481      0
+ */
 public class Day02 {
     public long computeChecksum(List<String> spreadsheetRows) {
         return spreadsheetRows.stream()
