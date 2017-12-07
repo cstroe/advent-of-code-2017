@@ -3,6 +3,8 @@ package aoc2017;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static aoc2017.Utils.*;
+
 /**
  * --- Day 7: Recursive Circus ---
 
@@ -128,11 +130,7 @@ public class Day07 {
     private Map<String, Tower> towerMap = new HashMap<>();
 
     public String getBottomTower(List<String> lists) {
-
         towers = lists.stream().map(Tower::new).collect(Collectors.toList());
-
-
-
         Set<String> hasParent = new HashSet<>();
 
         for(Tower t : towers) {
@@ -140,7 +138,6 @@ public class Day07 {
         }
 
         return towers.stream().filter(t -> !hasParent.contains(t.name)).findFirst().get().name;
-
     }
 
     public int findCorrectWeight(List<String> lists) {
@@ -159,45 +156,37 @@ public class Day07 {
         String bottomTowerName = getBottomTower(lists);
         Tower bottomTower = towerMap.get(bottomTowerName);
 
-
-
-        doStuff(bottomTower);
-
-        return 0;
+        return findCorrectWeight(bottomTower, 0);
     }
 
-    public void doStuff(Tower bottomTower) {
-        int[] array = bottomTower.subs.stream().mapToInt(Tower::weight).toArray();
+    public int findCorrectWeight(Tower bottomTower, int diff) {
+        int[] weights = bottomTower.subs.stream().mapToInt(Tower::weight).toArray();
         int[] a = bottomTower.subs.stream().mapToInt(Tower::isBalanced).toArray();
+
+        int min = min(weights);
+        int minCount = count(weights, min);
+        int max = max(weights);
+        int maxCount = count(weights, max);
 
         for(int i = 0; i < a.length; i++) {
             if(a[i] == 0) {
-                doStuff(bottomTower.subs.get(i));
+                Tower unbalancedTower = bottomTower.subs.get(i);
+                if(minCount > maxCount) {
+                    return findCorrectWeight(unbalancedTower, min - max);
+                } else {
+                    return findCorrectWeight(unbalancedTower, max - min);
+                }
             }
         }
 
-        System.out.println("bingo");
+        if(minCount > maxCount) {
+            int i = findIndexOf(weights, max);
+            Tower t = bottomTower.subs.get(i);
+            return t.weight + diff;
+        } else {
+            int i = findIndexOf(weights, min);
+            Tower t = bottomTower.subs.get(i);
+            return t.weight + diff;
+        }
     }
-
-//    public int findWeightMismatch(Tower t, int v) {
-//        List<Boolean> balanced = t.subs.stream()
-//                .map(Tower::isBalanced)
-//                .collect(Collectors.toList());
-//
-//        int i = 0;
-//        boolean hasImbalance = true;
-//        while(balanced.get(i).booleanValue() != false) {
-//            i++;
-//            if(i > balanced.size()) {
-//                hasImbalance = false;
-//                break;
-//            }
-//        }
-//
-//        if(hasImbalance) {
-//            return findWeightMismatch(t.subs.get(i), 0);
-//        } else {
-//            return 0;
-//        }
-//    }
 }

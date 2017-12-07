@@ -16,13 +16,18 @@ class Day07Test {
     @Test
     public void simpleTest() throws IOException {
         List<String> testInput = TestUtil.readResource("/day07test.txt");
-
         assertThat(day.getBottomTower(testInput), is("tknk"));
     }
 
     @Test
-    public void solveProblem() throws IOException {
+    public void solvePart1() throws IOException {
         List<String> input = TestUtil.readResource("/day07.txt");
-        assertThat(day.findCorrectWeight(input), is(""));
+        assertThat(day.getBottomTower(input), is("vgzejbd"));
+    }
+
+    @Test
+    public void solvePart2() throws IOException {
+        List<String> input = TestUtil.readResource("/day07.txt");
+        assertThat(day.findCorrectWeight(input), is(1226));
     }
 }
