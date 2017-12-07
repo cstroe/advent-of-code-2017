@@ -10,7 +10,7 @@ fi
 
 DAY=`printf "%02d" $1`
 
-cat <<__IMPL__ > src/main/java/aoc2017/Day${DAY}p$1.java
+cat <<__IMPL__ > src/main/java/aoc2017/Day${DAY}.java
 package aoc2017;
 
 public class Day${DAY} {
