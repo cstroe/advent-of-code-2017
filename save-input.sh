@@ -18,3 +18,6 @@ fi
 OUTPUT_FILE=`printf "day%02d.txt" $1`
 
 curl --cookie "$COOKIE" http://adventofcode.com/2017/day/$1/input > src/test/resources/$OUTPUT_FILE
+
+TEST_FILE=`printf "day%02dtest.txt" $1`
+touch src/test/resources/$TEST_FILE
