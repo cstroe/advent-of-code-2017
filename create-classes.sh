@@ -13,6 +13,11 @@ DAY=`printf "%02d" $1`
 cat <<__IMPL__ > src/main/java/aoc2017/Day${DAY}.java
 package aoc2017;
 
+import java.util.*;
+import java.util.stream.Collectors;
+
+import static aoc2017.Utils.*;
+
 public class Day${DAY} {
     public int doStuff(int[] indices) {
         return 0;
@@ -28,21 +33,42 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+import java.util.*;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+
+import static aoc2017.Utils.*;
 
 @DisplayName("Day ${DAY}")
 class Day${DAY}Test {
     private Day${DAY} day = new Day${DAY}();
 
+    @BeforeEach
+    public void setUp() {
+        day = new Day${DAY}();
+    }
+
     @Test
-    public void simpleTest() {
+    public void testPart1() throws IOException {
         int[] testInput = new int[] {0, 3, 0, 1, -3};
         assertThat(day.doStuff(testInput), is(0));
     }
 
     @Test
-    public void solveProblem() throws IOException {
+    public void solvePart1() throws IOException {
+        int[] input = TestUtil.readResourceAsInts("/day${DAY}.txt");
+        assertThat(day.doStuff(input), is(0));
+    }
+
+    @Test
+    public void testPart2() throws IOException {
+        int[] testInput = new int[] {0, 3, 0, 1, -3};
+        assertThat(day.doStuff(testInput), is(0));
+    }
+
+    @Test
+    public void solvePart2() throws IOException {
         int[] input = TestUtil.readResourceAsInts("/day${DAY}.txt");
         assertThat(day.doStuff(input), is(0));
     }
