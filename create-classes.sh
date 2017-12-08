@@ -19,7 +19,11 @@ import java.util.stream.Collectors;
 import static aoc2017.Utils.*;
 
 public class Day${DAY} {
-    public int doStuff(int[] indices) {
+    public int part1(int[] indices) {
+        return 0;
+    }
+
+    public int part2(int[] indices) {
         return 0;
     }
 }
@@ -52,25 +56,25 @@ class Day${DAY}Test {
     @Test
     public void testPart1() throws IOException {
         int[] testInput = new int[] {0, 3, 0, 1, -3};
-        assertThat(day.doStuff(testInput), is(0));
+        assertThat(day.part1(testInput), is(0));
     }
 
     @Test
     public void solvePart1() throws IOException {
         int[] input = TestUtil.readResourceAsInts("/day${DAY}.txt");
-        assertThat(day.doStuff(input), is(0));
+        assertThat(day.part1(input), is(0));
     }
 
     @Test
     public void testPart2() throws IOException {
         int[] testInput = new int[] {0, 3, 0, 1, -3};
-        assertThat(day.doStuff(testInput), is(0));
+        assertThat(day.part2(testInput), is(0));
     }
 
     @Test
     public void solvePart2() throws IOException {
         int[] input = TestUtil.readResourceAsInts("/day${DAY}.txt");
-        assertThat(day.doStuff(input), is(0));
+        assertThat(day.part2(input), is(0));
     }
 }
 __TEST__
